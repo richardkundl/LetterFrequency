@@ -153,14 +153,19 @@ namespace LetterFrequency.Web.Helper
 			text = Regex.Replace(text, @"\s+", string.Empty);
 			text = Regex.Replace(text, @"[\d-]", string.Empty);
 
+			var bests = new List<KeyValuePair<string, Dictionary<string, bool>>>(); 
+
 			var acceptedLetters = new List<string>();
 			acceptedLetters.AddRange(Language.EnglishCharacters);
 			foreach (var language in LanguageSet)
 			{
+				var item = new KeyValuePair<string, Dictionary<string, bool>>(language.Name, new Dictionary<string, bool>());
 				foreach (var spec in language.SpecificCharacters)
 				{
 					acceptedLetters.Add(spec);
 				}
+
+				bests.Add(item);
 			}
 
 			var letters = new Dictionary<string, int>();
@@ -187,14 +192,31 @@ namespace LetterFrequency.Web.Helper
 				processedChars = processedChars + 1;
 			}
 
+			letters = letters.OrderByDescending(d => d.Value).ToDictionary(x => x.Key, x => x.Value);
+
+			// find similar lang
 			foreach (var letter in letters)
 			{
 				percent.Add(letter.Key, ((double)letter.Value / processedChars));
+				var bestLang = string.Empty;
+				var bestPercent = 0.00;
+				foreach (var language in LanguageSet)
+				{
+					// végig iterálni az összes betün és megnézni hogy melyik van legközelebb hozzá, ha nem található ilyen betű az adott nyelveben akkor 0-val kerül be.
+					if (!language.CharacterSet.ContainsKey(letter.Key))
+					{
+						// bests
+					}
+
+
+				}
+
+				if (string.IsNullOrEmpty(bestLang))
+				{
+
+				}
 			}
 
-			percent = percent.OrderByDescending(d => d.Value).ToDictionary(x => x.Key, x => x.Value);
-
-			// find similar lang
 
 			return string.Empty;
 		}
