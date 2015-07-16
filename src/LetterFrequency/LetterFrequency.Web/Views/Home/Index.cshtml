@@ -1,0 +1,20 @@
+﻿@model LetterFrequency.Web.Models.TextModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-12">
+            @Html.TextAreaFor(m => m.Text)
+
+        </div>
+    </div>
+
+    <div class="row">
+        @Html.LabelFor(m => m.Language)
+    </div>
+
+    <input type="submit" value="Analyze" />
+}
