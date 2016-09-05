@@ -1,0 +1,3 @@
+A jellegzetesen magyar betûk, betûkapcsolatok és hangjelölések vizsgálata - http://bs-gerillanyelveszet.blog.hu/2012/08/18/a_jellegzetesen_magyar_betuk_betukapcsolatok_es_hangjelolesek_vizsgalata
+Betû gyakoriság(nem igazán megbízható, hiányzik, hogy mi alapján van mérve, pl a magyarból hiányzik a 'w') http://www.cryptogram.org/downloads/words/frequency.html
+Betû gyakoriság(másik forrás, nem ír % értékeket) http://letterfrequency.org/
